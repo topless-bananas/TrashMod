@@ -1,7 +1,5 @@
 using Vintagestory.API.Common;
 
-[assembly: ModInfo("TrashMod", "trashmod", Version = "1.0.0", Authors = new[] { "Fjre" })]
-
 namespace TrashMod
 {
     public class TrashMod : ModSystem

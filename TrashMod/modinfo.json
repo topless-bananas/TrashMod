@@ -1,0 +1,8 @@
+{
+  "type": "code",
+  "modid": "trashmod",
+  "name": "Trash Mod",
+  "description": "A mod to manage trash in Vintage Story.",
+  "authors": ["Fjre"],
+  "version": "1.0.0",
+}

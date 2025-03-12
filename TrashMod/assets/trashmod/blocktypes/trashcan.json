@@ -1,0 +1,13 @@
+{
+  "code": "trashcan",
+  "class": "BlockTrashCan",
+  "entityClass": "BlockEntityTrashCan",
+  "shape": { "base": "block/trashcan" },
+  "creativeinventory": { "general": ["*"] },
+  "blockmaterial": "Metal",
+  "resistance": 5.0,
+  "maxStackSize": 1,
+  "lightAbsorption": 1,
+  "attributes": {
+  }
+}

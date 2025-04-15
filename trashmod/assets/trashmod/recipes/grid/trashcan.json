@@ -1,0 +1,15 @@
+{
+    "ingredientPattern": "A,A",
+    "ingredients": {
+        "A": {
+            "type": "item",
+            "code": "game:metalplate-tin"
+        }
+    },
+    "width": 1,
+    "height": 2,
+    "output": {
+        "type": "block",
+        "code": "trashcan"
+    }
+}

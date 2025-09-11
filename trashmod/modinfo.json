@@ -1,6 +1,6 @@
 {
   "authors": [ "ToplessBananas" ],
-  "contributers" [ "BloodThunder" ],
+  "contributers": [ "BloodThunder" ],
   "dependencies": {
     "game": "1.21.0"
   },

@@ -1,7 +1,7 @@
 {
   "authors": [ "ToplessBananas", "BloodThunder" ],
   "dependencies": {
-    "game": ""
+    "game": "1.21.0"
   },
   "description": "A mod to manage trash in Vintage Story.",
   "modid": "trashmod",

@@ -34,7 +34,7 @@ namespace TrashMod
 
         public BlockEntityTrashCan()
         {
-            inventory = new InventoryGeneric(1, null, this.Api);
+            inventory = new InventoryGeneric(6, null, this.Api);
             inventory.SlotModified += OnSlotModified;
         }
 
@@ -55,12 +55,20 @@ namespace TrashMod
         /// </summary>
         public void EmptyTrash()
         {
-            if (!TrashSlot.Empty)
+            for (int i = 0; i < Inventory.Count; i++)
             {
+
+                if (!Inventory[i].Empty)
+                {
+                    Inventory[i].Itemstack = null;
+                    Inventory[i].MarkDirty();
+                }
+
                 TrashSlot.Itemstack = null;
                 TrashSlot.MarkDirty();
                 Api.Logger.Audit("[TrashMod] TrashSlot has been emptied.");
             }
+            Api.Logger.Audit("[TrashMod] Dumpster inventory has been emptied.");
         }
         public override bool OnPlayerRightClick(IPlayer byPlayer, BlockSelection blockSel)
         {

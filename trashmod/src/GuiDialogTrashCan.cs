@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,8 +33,8 @@ namespace trashmod
                 .WithAlignment(EnumDialogArea.CenterMiddle);
 
             ElementBounds titleBounds = ElementBounds.Fixed(20, 20, 200, 30);
-            ElementBounds slotBounds = ElementStdBounds.SlotGrid(EnumDialogArea.None, 130, 60, 1, 1);
-            ElementBounds emptyButtonBounds = ElementBounds.Fixed(100, 120, 100, 30);
+            ElementBounds slotBounds = ElementStdBounds.SlotGrid(EnumDialogArea.None, 0, 40, 3, 2);
+            ElementBounds emptyButtonBounds = ElementBounds.Fixed(100, 140, 100, 30);
 
             ClearComposers();
 
@@ -43,7 +43,7 @@ namespace trashmod
                 .AddDialogTitleBar(DialogTitle, OnTitleBarClose)
                 .BeginChildElements(bgBounds)
                     .AddStaticText(Lang.Get("trashmod:block-trashcan"), CairoFont.WhiteDetailText(), titleBounds)
-                    .AddItemSlotGrid(Inventory, SendInvPacket, 1, slotBounds, "slotGrid")
+                    .AddItemSlotGrid(Inventory, SendInvPacket, 3, slotBounds, "slotGrid")
                     .AddButton("Empty", OnEmptyTrashClick, emptyButtonBounds)
                 .EndChildElements()
                 .Compose();
@@ -84,3 +84,4 @@ namespace trashmod
         }
     }
 }
+

@@ -1,0 +1,15 @@
+{
+  "ingredientPattern": "A,A,A,A",
+  "ingredients": {
+    "A": {
+      "type": "item",
+      "code": "game:metalplate-iron"
+    }
+  },
+  "width": 2,
+  "height": 2,
+  "output": {
+    "type": "block",
+    "code": "dumpster"
+  }
+}

@@ -16,7 +16,11 @@ namespace TrashMod
             api.RegisterBlockClass("BlockTrashCan", typeof(BlockTrashCan));
             api.RegisterBlockEntityClass("BlockEntityTrashCan", typeof(BlockEntityTrashCan));
 
+            api.RegisterBlockClass("BlockDumpster", typeof(BlockDumpster));
+            api.RegisterBlockEntityClass("BlockEntityDumpster", typeof(BlockEntityDumpster));
+
             api.Logger.Notification("[TrashMod] TrashMod initialized on " + api.Side);
+
         }
 
         public override void StartServerSide(ICoreServerAPI api)
@@ -30,7 +34,6 @@ namespace TrashMod
         }
     }
 }
-
 
 
 

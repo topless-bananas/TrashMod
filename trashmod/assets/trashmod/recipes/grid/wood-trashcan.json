@@ -1,0 +1,20 @@
+{
+  "ingredientPattern": "A,_,A,A,_,A,A,B,A",
+  "ingredients": {
+    "A": {
+      "type": "item",
+      "code": "game:plank-*"
+    },
+    "B": {
+      "type": "item",
+      "code": "game:basket-*"
+    }
+  },
+  "width": 3,
+  "height": 3,
+  "shapeless": false,
+  "output": {
+    "type": "block",
+    "code": "trashmod:wood-trashcan"
+  }
+}

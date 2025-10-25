@@ -1,0 +1,15 @@
+{
+  "ingredientPattern": "A,A,A,A,A,A",
+  "ingredients": {
+    "A": {
+      "type": "item",
+      "code": "game:nugget-cassiterite"
+    }
+  },
+  "width": 2,
+  "height": 3,
+  "output": {
+    "type": "block",
+    "code": "trashbin"
+  }
+}

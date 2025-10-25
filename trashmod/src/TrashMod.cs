@@ -1,9 +1,6 @@
 using Vintagestory.API.Client;
 using Vintagestory.API.Server;
 using Vintagestory.API.Common;
-using Vintagestory.API.MathTools;
-using System.Collections.Generic;
-using System;
 
 namespace TrashMod
 {
@@ -13,14 +10,19 @@ namespace TrashMod
         {
             base.Start(api);
 
+            // Register TrashCan
             api.RegisterBlockClass("BlockTrashCan", typeof(BlockTrashCan));
             api.RegisterBlockEntityClass("BlockEntityTrashCan", typeof(BlockEntityTrashCan));
 
+            // Register Dumpster
             api.RegisterBlockClass("BlockDumpster", typeof(BlockDumpster));
             api.RegisterBlockEntityClass("BlockEntityDumpster", typeof(BlockEntityDumpster));
 
-            api.Logger.Notification("[TrashMod] TrashMod initialized on " + api.Side);
+            // Register TrashBin
+            api.RegisterBlockClass("BlockTrashBin", typeof(BlockTrashBin));
+            api.RegisterBlockEntityClass("BlockEntityTrashBin", typeof(BlockEntityTrashBin));
 
+            api.Logger.Notification("[TrashMod] TrashMod initialized on " + api.Side);
         }
 
         public override void StartServerSide(ICoreServerAPI api)
@@ -34,7 +36,4 @@ namespace TrashMod
         }
     }
 }
-
-
-
 

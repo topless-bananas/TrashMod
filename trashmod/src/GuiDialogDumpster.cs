@@ -39,7 +39,7 @@ namespace TrashMod
                 .BeginChildElements(bgBounds)
                     .AddStaticText(Lang.Get("trashmod:block-dumpster"), CairoFont.WhiteDetailText(), titleBounds)
                     .AddItemSlotGrid(Inventory, SendInvPacket, 4, slotBounds, "slotGrid")
-                    .AddButton("Empty", OnEmptyTrashClick, emptyButtonBounds)
+                    .AddButton(Lang.Get("trashmod:btn-empty"), OnEmptyTrashClick, emptyButtonBounds)
                 .EndChildElements()
                 .Compose();
         }

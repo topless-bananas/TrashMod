@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
@@ -10,18 +6,17 @@ using Vintagestory.API.MathTools;
 
 namespace trashmod
 {
-    public class GuiDialogTrashCan : GuiDialogBlockEntity
+    public class GuiDialogTrashBin : GuiDialogBlockEntity
     {
-        // private BlockEntityTrashCan trashCan;
-        public override string ToggleKeyCombinationCode => "trashcangui";
-        public GuiDialogTrashCan(string DialogTitle, InventoryBase Inventory, BlockPos BlockEntityPosition, ICoreClientAPI capi) : base(DialogTitle, Inventory, BlockEntityPosition, capi)
+        public override string ToggleKeyCombinationCode => "trashbingui";
+
+        public GuiDialogTrashBin(string DialogTitle, InventoryBase Inventory, BlockPos BlockEntityPosition, ICoreClientAPI capi)
+            : base(DialogTitle, Inventory, BlockEntityPosition, capi)
         {
             if (IsDuplicate) return;
 
             this.capi = capi;
             SetupDialog();
-
-            // this.trashCan = trashCan;
         }
 
         public void SetupDialog()
@@ -33,50 +28,57 @@ namespace trashmod
                 .WithAlignment(EnumDialogArea.CenterMiddle);
 
             ElementBounds titleBounds = ElementBounds.Fixed(20, 20, 200, 30);
-            ElementBounds slotBounds = ElementStdBounds.SlotGrid(EnumDialogArea.None, 0, 40, 3, 2);
-            ElementBounds emptyButtonBounds = ElementBounds.Fixed(100, 140, 100, 30);
+            ElementBounds slotBounds = ElementStdBounds.SlotGrid(EnumDialogArea.None, 0, 40, 2, 1);
+            ElementBounds emptyButtonBounds = ElementBounds.Fixed(80, 100, 100, 30);
 
             ClearComposers();
 
-            SingleComposer = capi.Gui.CreateCompo("trashcan" + BlockEntityPosition, dialogBounds)
+            SingleComposer = capi.Gui.CreateCompo("trashbin" + BlockEntityPosition, dialogBounds)
                 .AddShadedDialogBG(bgBounds)
                 .AddDialogTitleBar(DialogTitle, OnTitleBarClose)
                 .BeginChildElements(bgBounds)
-                    .AddStaticText(Lang.Get("trashmod:block-trashcan"), CairoFont.WhiteDetailText(), titleBounds)
-                    .AddItemSlotGrid(Inventory, SendInvPacket, 3, slotBounds, "slotGrid")
+                    .AddStaticText(Lang.Get("trashmod:block-trashbin"), CairoFont.WhiteDetailText(), titleBounds)
+                    .AddItemSlotGrid(Inventory, SendInvPacket, 2, slotBounds, "slotGrid")
                     .AddButton(Lang.Get("trashmod:btn-empty"), OnEmptyTrashClick, emptyButtonBounds)
                 .EndChildElements()
                 .Compose();
         }
+
         public void ReloadDialog()
         {
             SingleComposer.ReCompose();
         }
+
         private void OnTitleBarClose()
         {
             TryClose();
         }
+
         private void SendInvPacket(object packet)
         {
             capi.Network.SendBlockEntityPacket(BlockEntityPosition.X, BlockEntityPosition.Y, BlockEntityPosition.Z, packet);
         }
+
         private bool OnEmptyTrashClick()
         {
             capi.Gui.PlaySound("toggleswitch");
-            capi.Logger.Audit("[TrashMod] Empty button has been clicked by client. Sending packet to {0}.", capi.World.BlockAccessor.GetBlockEntity(BlockEntityPosition).Block.Code);
+            capi.Logger.Audit("[TrashMod] Empty button has been clicked by client. Sending packet to {0}.",
+                capi.World.BlockAccessor.GetBlockEntity(BlockEntityPosition).Block.Code);
             capi.Network.SendBlockEntityPacket(BlockEntityPosition, 1004);
             return true;
         }
+
         public override void OnGuiOpened()
         {
             base.OnGuiOpened();
         }
+
         public override void OnGuiClosed()
         {
             SingleComposer.GetSlotGrid("slotGrid").OnGuiClosed(capi);
-
             base.OnGuiClosed();
         }
+
         public override void Dispose()
         {
             base.Dispose();

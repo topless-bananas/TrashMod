@@ -1,5 +1,6 @@
 {
 	"editor": {
+		"collapsedPaths": "Root/Cube2,Root/Cube2/Cube3,Root/Cube2/Cube14",
 		"allAngles": false,
 		"entityTextureMode": false
 	},
@@ -32,14 +33,14 @@
 		"titanium": [ 16, 16 ]
 	},
 	"textures": {
-		"iron": "game:block/metal/plate/iron"
+		"iron": "game:block/metal/ingot/iron"
 	},
 	"elements": [
 		{
 			"name": "Cube2",
-			"from": [ 0.0, 1.0, 0.0 ],
-			"to": [ 32.0, 2.0, 32.0 ],
-			"rotationOrigin": [ 32.0, 1.0, 32.0 ],
+			"from": [ -8.0, 1.0, -8.0 ],
+			"to": [ 24.0, 2.0, 24.0 ],
+			"rotationOrigin": [ 24.0, 0.0, -2.0 ],
 			"faces": {
 				"north": {
 					"texture": "#iron",
@@ -722,6 +723,37 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "Cube21",
+					"from": [ 0.0, 0.0, 0.0 ],
+					"to": [ 1.0, 1.0, 1.0 ],
+					"faces": {
+						"north": {
+							"texture": "#iron",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						},
+						"east": {
+							"texture": "#iron",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						},
+						"south": {
+							"texture": "#iron",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						},
+						"west": {
+							"texture": "#iron",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						},
+						"up": {
+							"texture": "#iron",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						},
+						"down": {
+							"texture": "#iron",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						}
+					}
 				}
 			]
 		}

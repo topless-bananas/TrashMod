@@ -1,4 +1,8 @@
 {
   "block-trashcan": "Trash Can",
-  "block-dumpster": "Dumpster"
+  "block-trashbin": "Trash Bin",
+  "item-trashbag": "Trash Bag",
+  "block-dumpster": "Dumpster",
+  "block-wood-trashcan": "Wooden Trash Can",
+   "btn-empty": "Empty"
 }
